@@ -24,7 +24,7 @@ function runTechTest(event){
       flashCount++;
       flashTest();
     } else {
-      flashDiv.innerHTML = '<h3>DONE!</h3><p>AVG: '+getAverage(flashTimes)+'ms</p>';
+      flashDiv.innerHTML = '<h3>FLASH DONE!</h3><p>AVG: '+getAverage(flashTimes)+'ms</p>';
     }
   };  
   function flashTest() {
@@ -46,7 +46,7 @@ function runTechTest(event){
         html5Count++;
         html5Test();
       } else {
-        html5Div.innerHTML = '<h3>DONE!</h3><p>AVG: '+getAverage(html5Times)+'ms</p>';
+        html5Div.innerHTML = '<h3>HTML5 DONE!</h3><p>AVG: '+getAverage(html5Times)+'ms</p>';
         flashTest();
       }
     } else {
