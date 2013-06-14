@@ -4,10 +4,10 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+		<title>Buffering is a Four-letter Word </title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<meta name="description" content="A presentation on web video performance first created for Velocity Conf 2013">
+		<meta name="author" content="David LaPalomento (dmlap) &amp; Steve Heffernan (heff)">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -19,6 +19,9 @@
 
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Custom classes -->
+		<link rel="stylesheet" href="css/custom.css">
 
 		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
 		<script>
@@ -38,19 +41,23 @@
 			<div class="slides">
 
 				<section>
-					<h1>Reveal.js</h1>
-					<h3>HTML Presentations Made Easy</h3>
+					<h1>Buffering is a four-letter word</h1>
+					<h3>A presentation on web video performance</h3>
 					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
+						<small>Created by 
+						<br><a href="https://twitter.com/dlapalomento">David LaPalomento</a> :: Lead Player Engineer at <a href="http://www.brightcove.com">Brightcove</a>
+						<br><a href="https://twitter.com/heff">Steve Heffernan</a> :: Co-founder of <a href="http://zencoder.com">Zencoder</a> &amp; Creator of <a href="http://www.videojs.com">Video.js</a></small>
 					</p>
 				</section>
 
 				<section>
-					<h2>Heads Up</h2>
-					<p>
-						reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with
-						support for CSS 3D transforms to see it in its full glory.
-					</p>
+					<h2>Overview</h2>
+					<ul>
+						<li>Player Loading</li>
+						<li>Video Loading</li>
+						<li>Connection Management</li>
+						<li>Ingestion</li>
+					</ul>
 
 					<aside class="notes">
 						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
@@ -60,25 +67,48 @@
 				<!-- Example of nested vertical slides -->
 				<section>
 					<section>
-						<h2>Vertical Slides</h2>
-						<p>
-							Slides can be nested inside of other slides,
-							try pressing <a href="#" class="navigate-down">down</a>.
-						</p>
-						<a href="#" class="image navigate-down">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
+						<h2>Player Loading</h2>
+						<img width="466" height="405" src="img/player-loading.png" alt="Player Loading">
+						<aside>Goal: Player is ready for user interaction 
+							<br>(big play button is showing)
+						</aside>
 					</section>
 					<section>
-						<h2>Basement Level 1</h2>
-						<p>Press down or up to navigate.</p>
+						<h2>Video Playback Technology</h2>
+						<div style="margin:50px auto 0;">
+							<img class="plain" style="display:inline-block; padding-right: 80px;" src="img/html5-logo.png" border="0">
+							<strong style="display:inline-block; vertical-align: top; line-height: 351px;">VS</strong>
+							<img class="plain" style="display:inline-block; padding-left: 80px;" src="img/flash-logo.png" border="0">
+						</div>
+						<aside class="notes" data-markdown></aside>
 					</section>
 					<section>
-						<h2>Basement Level 2</h2>
-						<p>Cornify</p>
-						<a class="test" href="http://cornify.com">
-							<img width="280" height="326" src="https://s3.amazonaws.com/hakim-static/reveal-js/cornify.gif" alt="Unicorn">
-						</a>
+						<h2>Video Tech Load-off</h2>
+
+						<p><a href="#" id="run_tech_test">RUN 10x each (click me)</a></p>
+
+						<div id="tech_test" style="display:inline-block;">
+							<table>
+								<tr>
+									<td style="min-width: 350px; text-align: center;">
+										<div id="html5_test" style="display:inline-block;"></div>
+									</td>
+									<td style="min-width: 350px; text-align: center;">
+										<div id="flash_test" style="display:inline-block;">
+									</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">
+										<img class="plain" width="125" height="176" style="display:inline-block;" src="img/html5-logo.png" border="0">
+										<div id="html5_results"></div>
+									</td>
+									<td style="text-align: center;">
+										<img class="plain" width="139" height="175" style="display:inline-block;" src="img/flash-logo.png" border="0">
+										<div id="flash_results"></div>
+									</td>
+								</tr>
+							</table>	
+						</div>
 					</section>
 					<section>
 						<h2>Basement Level 3</h2>
@@ -333,6 +363,8 @@ function linkify( selector ) {
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.min.js"></script>
+
+		<script src="js/tech-test.js"></script>
 
 		<script>
 

@@ -1,0 +1,7 @@
+.reveal img.plain { border: 0; background: none; box-shadow: none; }
+
+#tech_test_results {
+  border-left: 1px solid #333;
+  border-bottom: 1px solid #333;
+  height: 100px;
+}
