@@ -110,7 +110,71 @@
 							</table>	
 						</div>
 					</section>
+					<section>
+						<h2>JavaScript: Why is it used?</h2>
+						<ul>
+							<li>Embed code generation</li>
+							<li>Custom features with HTML5</li>
+							<li>API Access</li>
+						</ul>
+					</section>
+					<section>
+						<h2>JavaScript: Best Practices</h2>
+						<ul>
+							<li>Combine</li>
+							<li>Minify</li>
+							<li>Host on a CDN</li>
+							<li>Load before &lt;/body&gt;*</li>
+						</ul>
+						<pre><code>
+	...
+	<script src="myVideoPlayer.js"></script>
+&lt;/body&gt;
+&lt;/html&gt;
+					</code></pre>
+					</section>
+					<section>
+						<h2>JavaScript: Loading for Video Pages</h2>
+						<ul>
+							<li>Load immediately after the video in the HTML</li>
+							<li>Ajax load other major content pieces</li>
+							<li>Use an async loader</li>
+						</ul>
+
+						<br><br>
+
+						<h4>&lt;HEAD&gt;</h4>
+						<pre><code data-trim>
+<script>
+var _vidq=[];
+(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+g.src='myVideoPlayer.js';
+s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+						</code></pre>
+
+						<h4>&lt;BODY&gt;</h4>
+						<pre><code data-trim>
+<div id="my_video_placeholder"></div>
+<script>
+var _vidq.push('my_video_placeholder');
+</script>
+						</code></pre>
+
+						<aside class="note">
+							For video-specific pages. Think of a Youtube video page. The video is the main content and by the time you reach that page you intend to watch the video. The page is just a vehical for the video, with extra meta data like the title.
+						</aside>
+					</section>
+					<section>
+						<h2>JavaScript: Youtube Example</h2>
+						<img class="plain" src="img/youtube-load.png" border="0" alt="YouTube JavaScript Loading"/>
+					</section>
 				</section>
+
+
+
+
+
 
 				<section>
 					<h2>Slides</h2>
