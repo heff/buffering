@@ -140,9 +140,9 @@
 							<li>Ajax load other major content pieces</li>
 							<li>Use an async loader</li>
 						</ul>
-
-						<br><br>
-
+					</section>
+					<section>
+						<h2>JavaScript: Async Loader</h2>
 						<h4>&lt;HEAD&gt;</h4>
 						<pre><code data-trim>
 <script>
@@ -161,15 +161,55 @@ var _vidq.push('my_video_placeholder');
 </script>
 						</code></pre>
 
-						<aside class="note">
+						<h4>myVideoPlayer.js</h4>
+						<pre><code data-trim class="javascript">
+var _vidqCopy = _vidq || [];
+_vidq = { 
+	push: function(placeholder_id){
+		// Player Initialization
+	};
+}
+_vidqCopy.forEach(_vidq.push);
+						</code></pre>
+
+						<aside class="notes">
 							For video-specific pages. Think of a Youtube video page. The video is the main content and by the time you reach that page you intend to watch the video. The page is just a vehical for the video, with extra meta data like the title.
 						</aside>
 					</section>
 					<section>
-						<h2>JavaScript: Youtube Example</h2>
+						<h2>Youtube Page Loading</h2>
 						<img class="plain" src="img/youtube-load.png" border="0" alt="YouTube JavaScript Loading"/>
+						<aside class="notes">
+							You can catch the point where the player starts loading. Nothing else on the page is loaded before it.
+						</aside>
 					</section>
+					<section>
+						<h2>Youtube Page Source</h2>
+						<img class="plain" src="img/youtube-source.png" border="0" alt="YouTube Page Source"/>
+						<aside class="notes">
+							Youtube actually in-lines a good amount of JavaScript (32k) immediately after where the player will load. The JS will either load the SWF or the HTML5 player.
+						</aside>
+					</section>
+					<section>
+						<h2>iFrames</h2>
+						<ul>
+							<li>...</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Perception of Readiness</h2>
+						<ul>
+							<li>...</li>
+						</ul>
+					</section>					
 				</section>
+
+
+
+
+
+
+
 
 
 
