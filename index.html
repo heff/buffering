@@ -238,7 +238,15 @@ _vidqCopy.forEach(_vidq.push);
 				    <h2>Transfer</h2>
 				    <ul>
 				      <li>CDN</li>
-				      <li style="color:red">Browser caching: does it matter for video files?</li>
+				      <li>
+					Follow content-caching best practices but:
+					<small>
+					  <ul>
+					    <li>"replays" are less common than repeat visitors</li>
+					    <li>don't expect caching from mobile devices</li>
+					  </ul>
+					</small>
+				      </li>
 				    </ul>
 				  </section>
 				  <section>
@@ -263,32 +271,13 @@ _vidqCopy.forEach(_vidq.push);
 				    </aside>
 				  </section>
 				  <section>
-				    <style>
-				      .reveal .relation, .reveal .rhs,
-				      .reveal .arrow, .reveal .result {
-				        line-height: 100px;
-				      }
-				      .arrow, .result,
-				      .ratio, .relation, .rhs {
-				        display: inline-block;
-				      }
-				      .reveal .numerator {
-				        border-bottom: 5px solid white;
-				      }
-				      .reveal .ratio {
-				        line-height: 1.2em;
-				      }
-				    </style>
+				    <script type="text/x-mathjax-config">
+				      MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+				    </script>
+				    <script src="lib/js/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 				    <h2>Starting Strategy</h2>
 				    <aside>("preformance")</aside>
-				    <div class="ratio">
-				      <div class="numerator">Bitrate</div>
-				      <div class="denominator">Bandwidth</div>
-				    </div>
-				    <div class="relation">&gt;</div>
-				    <div class="rhs">1</div>
-				    <div class="arrow">&#x2192;</div>
-				    <div class="result">Spinner</div>
+				    <p>$$\frac{bitrate}{bandwidth} \leq 1 \implies spinner $$</p>
 				  </section>
 				  <section>
 				    <h2>Bitrate Selection</h2>
