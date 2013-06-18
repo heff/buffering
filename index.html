@@ -43,6 +43,9 @@
 				<section>
 					<h1>Buffering is a four-letter word</h1>
 					<h3>A presentation on web video performance</h3>
+
+					<img class="plain" src="img/ajax-loader.gif" style="width:30px; height:30px;">
+
 					<p>
 						<small>Created by 
 						<br><a href="https://twitter.com/dlapalomento">David LaPalomento</a> :: Lead Player Engineer at <a href="http://www.brightcove.com">Brightcove</a>
@@ -51,8 +54,14 @@
 				</section>
 
 				<section>
+					<blockquote style="font-size: 1.5em; line-height: 1.5em;">
+						The goal of video performance is to remove waiting from the video viewing experience
+					</blockquote>
+				</section>
+
+				<section>
 					<section>
-					<h2>Three areas of potential video "Slowness"</h2>
+					<h2>Three areas where waiting may occur</h2>
 					<ul>
 						<li>Player Loading</li>
 						<li>Video File Loading</li>
@@ -154,6 +163,20 @@
 						</ul>
 					</section>
 					<section>
+						<h2>Youtube Page Loading</h2>
+						<img class="plain" src="img/youtube-load.png" border="0" alt="YouTube JavaScript Loading"/>
+						<aside class="notes">
+							You can catch the point where the player starts loading. Nothing else on the page is loaded before it.
+						</aside>
+					</section>
+					<section>
+						<h2>Youtube Page Source</h2>
+						<img class="plain" src="img/youtube-source.png" border="0" alt="YouTube Page Source"/>
+						<aside class="notes">
+							Youtube actually in-lines a good amount of JavaScript (32k) immediately after where the player will load. The JS will either load the SWF or the HTML5 player.
+						</aside>
+					</section>
+					<section>
 						<h2>JavaScript: Async Loader</h2>
 						<h4>&lt;HEAD&gt;</h4>
 						<pre><code data-trim>
@@ -189,20 +212,6 @@ _vidqCopy.forEach(_vidq.push);
 						</aside>
 					</section>
 					<section>
-						<h2>Youtube Page Loading</h2>
-						<img class="plain" src="img/youtube-load.png" border="0" alt="YouTube JavaScript Loading"/>
-						<aside class="notes">
-							You can catch the point where the player starts loading. Nothing else on the page is loaded before it.
-						</aside>
-					</section>
-					<section>
-						<h2>Youtube Page Source</h2>
-						<img class="plain" src="img/youtube-source.png" border="0" alt="YouTube Page Source"/>
-						<aside class="notes">
-							Youtube actually in-lines a good amount of JavaScript (32k) immediately after where the player will load. The JS will either load the SWF or the HTML5 player.
-						</aside>
-					</section>
-					<section>
 					  <h2>iFrames</h2>
 					  <ul>
 					    <li>Popular delivery method</li>
@@ -235,15 +244,29 @@ _vidqCopy.forEach(_vidq.push);
 				    </aside>
 				  </section>
 				  <section>
+				    <h2>Video Player Settings</h2>
+				    <ul>
+				    	<li>Preload</li>
+				    	<li>Autoplay</li>
+				    </ul>
+				  </section>
+				  <section>
+				    <h2>Loading video in HTML5 faster</h2>
+				    <ul>
+				    	<li>Tested: &lt;video src&gt; vs. &lt;source&gt; vs. el.src = ‘’</li>
+				    	<li>Found: You can load video faster by calling load() sooner</li>
+				    </ul>
+				  </section>
+				  <section>
 				    <h2>Content Addressing</h2>
 				    <p>Static or Dynamic URLs</p>
 				    <strong class="fragment">STATIC</strong>
 				    <div class="fragment">
 				      <p>But you may have to make exceptions:<p>
-					<ul>
-					  <li>Expiration</li>
-					  <li>Flexibility</li>
-					</ul>
+							<ul>
+							  <li>Expiration</li>
+							  <li>Flexibility</li>
+							</ul>
 				    </div>
 				  </section>
 				  <section>
@@ -262,15 +285,14 @@ _vidqCopy.forEach(_vidq.push);
 				    </ul>
 				  </section>
 				  <section>
-				    <h2>Choosing the format</h2>
+				    <h2>Video File Encoding</h2>
 				    <ul>
-				      <li>MP4</li>
-				      <li>WebM</li>
-				      <li>Ogg Video</li>
+				      <li>Resolution</li>
+				      <li>Frame Rate</li>
+				      <li>Bit Rate</li>
+				      <li>Format</li>
+				      <li>MP4 Settings</li>
 				    </ul>
-				  </section>
-				  <section>
-				    <h2>Format-Specific Settings</h2>
 				  </section>
 				</section>
 
@@ -339,6 +361,29 @@ video.addEventListener('ready-to-play', function() {
 				      </code></pre>
 				  </section>
 				</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
