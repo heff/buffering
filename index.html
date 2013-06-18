@@ -311,7 +311,7 @@ _vidqCopy.forEach(_vidq.push);
 				    <script src="lib/js/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 				    <h2>Starting Strategy</h2>
 				    <aside>("preformance")</aside>
-				    <p>$$\frac{bitrate}{bandwidth} \leq 1 \implies spinner $$</p>
+				    <p>$$\frac{bitrate}{bandwidth} &lt; 1 \implies spinner $$</p>
 				  </section>
 				  <section>
 				    <h2>Bitrate Selection</h2>
@@ -353,12 +353,17 @@ _vidqCopy.forEach(_vidq.push);
 				  </section>
 				  <section>
 				    <h2>Fallbacks</h2>
-				    <p style="color: red">Wait for ready-to-play</p>
+				    <p>Wait for <code>canplaythrough</code></p>
 				    <pre><code class="javascript">
-video.addEventListener('ready-to-play', function() {
+video.addEventListener('canplaythrough, function() {
   video.play();
 }, false);
 				      </code></pre>
+				    <p>Monitor buffering yourself:</p>
+				    <ul>
+				      <li><code>progress</code></li>
+				      <li><code>video.buffered</code></li>
+				    </ul>
 				  </section>
 				</section>
 
