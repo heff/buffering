@@ -1,3 +1,5 @@
+# usage: awk -f video_requests.awk [file ...]
+
 BEGIN {
   mp4 = hls = webm = ogg = 0;
   print "{"
