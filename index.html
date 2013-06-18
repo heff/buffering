@@ -170,10 +170,130 @@ var _vidq.push('my_video_placeholder');
 						<img class="plain" src="img/youtube-load.png" border="0" alt="YouTube JavaScript Loading"/>
 					</section>
 				</section>
+				<section>
+				  <section>
+				    <h2>Video Loading</h2>
+				    <img width="466" height="405" src="img/video-loading" alt="Video Loading">
+				    <aside>Goal: Video is playing
+				      <br>(time to first frame is showing)
+				    </aside>
+				  </section>
+				  <section>
+				    <h2>Content Addressing</h2>
+				    <p>Static or Dynamic URLs</p>
+				    <strong class="fragment">STATIC</strong>
+				    <div class="fragment">
+				      <p>But you may have to make exceptions:<p>
+					<ul>
+					  <li>Expiration</li>
+					  <li>Flexibility</li>
+					</ul>
+				    </div>
+				  </section>
+				  <section>
+				    <h2>Transfer</h2>
+				    <ul>
+				      <li>CDN</li>
+				      <li style="color:red">Browser caching: does it matter for video files?</li>
+				    </ul>
+				  </section>
+				  <section>
+				    <h2>Choosing the format</h2>
+				    <ul>
+				      <li>MP4</li>
+				      <li>WebM</li>
+				      <li>Ogg Video</li>
+				    </ul>
+				  </section>
+				  <section>
+				    <h2>Format-Specific Settings</h2>
+				  </section>
+				</section>
 
-
-
-
+				<section>
+				  <section>
+				    <h2>Connection Speed Management</h2>
+				    <img width="466" height="405" src="img/playing.png" alt="Video Playing">
+				    <aside>Goal: No buffering!
+				      <br>(never show the spinner)
+				    </aside>
+				  </section>
+				  <section>
+				    <style>
+				      .reveal .relation, .reveal .rhs,
+				      .reveal .arrow, .reveal .result {
+				        line-height: 100px;
+				      }
+				      .arrow, .result,
+				      .ratio, .relation, .rhs {
+				        display: inline-block;
+				      }
+				      .reveal .numerator {
+				        border-bottom: 5px solid white;
+				      }
+				      .reveal .ratio {
+				        line-height: 1.2em;
+				      }
+				    </style>
+				    <h2>Starting Strategy</h2>
+				    <aside>("preformance")</aside>
+				    <div class="ratio">
+				      <div class="numerator">Bitrate</div>
+				      <div class="denominator">Bandwidth</div>
+				    </div>
+				    <div class="relation">&gt;</div>
+				    <div class="rhs">1</div>
+				    <div class="arrow">&#x2192;</div>
+				    <div class="result">Spinner</div>
+				  </section>
+				  <section>
+				    <h2>Bitrate Selection</h2>
+				    <em>Encode multiple renditions</em>
+				  </section>
+				  <section>
+				    <h2>Strategy 1: Manual Selection</h2>
+				    <h3>Let the viewer decide</h3>
+				    <img src="img/bitrate-selection.png" alt="Selecting video quality">
+				  </section>
+				  <section>
+				    <h2>Strategy 2: Automatic Selection</h2>
+				    <ul>
+				      <li>Many analytics libraries record client bandwidth</li>
+				      <li><code>window.performance</code></li>
+				      <li style="color: red">Bitrate recommendations</li>
+				    </ul>
+				  </section>
+				  <section>
+				    <h2>Strategy 3: Dynamic Selection</h2>
+				    <h3>Adaptive Streaming</h3>
+				    <p>swap renditions during playback based on measured bandwidth</p>
+				    <ul>
+				      <li>Flash Media Server</li>
+				      <li>Psuedo-Streaming</li>
+				      <li>HTTP Live Streaming <abbr>(HLS)<abbr></li>
+				      <li>MPEG-DASH</li>
+				    </ul>
+				    <p>HLS is supported on iOS devices and newer Androids. HDS is supported in Flash.</p>
+				  </section>
+				  <section>
+				    <h2>Segmenting</h2>
+				    <ul>
+				      <li>Rendition manifest lists bitrate variants</li>
+				      <li>Slice the video into many different segments</li>
+				      <li>Swap between variants at segment boundaries if bandwidth changes</li>
+				      <li style="color: red">Add diagram</li>
+				    </ul>
+				  </section>
+				  <section>
+				    <h2>Fallbacks</h2>
+				    <p style="color: red">Wait for ready-to-play</p>
+				    <pre><code class="javascript">
+video.addEventListener('ready-to-play', function() {
+  video.play();
+}, false);
+				      </code></pre>
+				  </section>
+				</section>
 
 
 				<section>
