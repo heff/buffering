@@ -1,5 +1,7 @@
+# usage: awk -f video_requests.awk [file ...]
+
 BEGIN {
-  mp4 = hls = webm = ogg = 0;
+  mp4 = hls = webm = ogv = flv = mov = m4v = avi = wmv = 0;
   print "{"
   print "  \"requests\": ["
 }
@@ -8,7 +10,7 @@ BEGIN {
     gsub(/\\N/, "\"\\n\"")
 }
 
-/"video\/mp4"/ {
+/\.mp4/ {
   mp4++
   print "    [", $0, "],"
 }
@@ -23,8 +25,33 @@ BEGIN {
   print "    [", $0, "],"
 }
 
-/\.ogv/ {
-  ogg++
+/\.ogv|\.ogg/ {
+  ogv++
+  print "    [", $0, "],"
+}
+
+/\.flv|\.f4v/ {
+  flv++
+  print "    [", $0, "],"
+}
+
+/\.mov/ {
+  mov++
+  print "    [", $0, "],"
+}
+
+/\.m4v/ {
+  m4v++
+  print "    [", $0, "],"
+}
+
+/\.avi/ {
+  avi++
+  print "    [", $0, "],"
+}
+
+/\.wmv/ {
+  wmv++
   print "    [", $0, "],"
 }
 
@@ -34,7 +61,12 @@ END {
   print "    \"mp4\":", mp4, ","
   print "    \"m3u8\":", hls, ","
   print "    \"webm\":", webm, ","
-  print "    \"ogg\":", ogg
+  print "    \"ogg\":", ogv, ","
+  print "    \"flv\":", flv, ","
+  print "    \"mov\":", mov, ","
+  print "    \"m4v\":", m4v, ","
+  print "    \"avi\":", avi, ","
+  print "    \"wmv\":", wmv, ","
   print "  }"
   print "}"
 }
