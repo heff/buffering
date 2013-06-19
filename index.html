@@ -45,7 +45,7 @@
 					<h1>Buffering is a four-letter word</h1>
 					<h3>A presentation on web video performance</h3>
 
-					<img class="plain" src="img/ajax-loader.gif" style="width:30px; height:30px;">
+					<img class="plain" src="img/ajax-loader-on-dark.gif" style="width:30px; height:30px;">
 
 					<p>
 						<small>Created by 
@@ -247,11 +247,17 @@ _vidqCopy.forEach(_vidq.push);
 				    <p style="text-align:left"><strong>AUTOPLAY</strong>: Use when the page is dedicated the video and you <em>know</em> the user will watch it.</p>
 				  </section>
 				  <section>
-				    <h2>Loading video in HTML5 faster</h2>
-				    <ul>
-				    	<li>Tested: &lt;video src&gt; vs. &lt;source&gt; vs. el.src = ‘’</li>
-				    	<li>Found: You can load video faster by calling load() sooner</li>
-				    </ul>
+				    <h2>Loading videos sooner in HTML5</h2>
+
+				    <p>With the <code>load()</code> method on the video element, you can trigger video loading sooner than the browser would normally.</p>
+				    <br>
+				    <pre><code class="html" data-trim>
+<video id="vid1" src="myVideo.mp4"></video>
+<script>
+  var vid1 = document.getElmentById('vid1');
+  vid1.load();
+</script>
+				    </code></pre>
 				  </section>
 				  <section>
 				    <h2>Content Addressing</h2>
@@ -281,15 +287,43 @@ _vidqCopy.forEach(_vidq.push);
 				    </ul>
 				  </section>
 				  <section>
-				    <h2>Video File Encoding</h2>
+				    <h1>Video Encoding</h1>
+				    <p>Know your audience.</p>
+				  </section>
+				  <section>
+				    <h2>Video Encoding: Resolutions</h2>
 				    <ul>
-				      <li>Resolution</li>
-				      <li>Frame Rate</li>
-				      <li>Bit Rate</li>
-				      <li>Format</li>
-				      <li>MP4 Settings</li>
+				      <li>Start with the most common display sizes</li>
+				      <li>Dimensions divisible by 16</li>
+				      <li>De-interlace</li>
 				    </ul>
 				  </section>
+				  <section>
+				    <h2>Video Encoding: Frame Rates</h2>
+				    <ul>
+				      <li>30 FPS is a good max frame rate</li>
+				      <li>Reduce to 15 FPS for lower bitrate streams</li>
+				    </ul>
+				  </section>
+				  <section>
+				    <h2>Video Encoding: Bit Rates</h2>
+				    <ul>
+				      <li>Target below your average customer's bandwidth</li>
+				      <li>Audio quality can be more important than video quality</li>
+				    </ul>
+				  </section>
+				  <section>
+				    <h2>Video Encoding: Formats</h2>
+
+						<img src="img/formats.png" class="plain" width="423" height="382" />
+				  </section>
+			    <section>
+			      <h2>Video Encoding: MP4 Settings</h2>
+			      <ul>
+			        <li>Make sure the headers are at the front of the file ("QT fast start", "Optimze for web")</li>
+			        <li>Use the highest profile setting your device targets can handle</li>
+			      </ul>
+			    </section>
 				</section>
 
 				<section>
@@ -343,10 +377,11 @@ _vidqCopy.forEach(_vidq.push);
 				      <li>Rendition manifest lists bitrate variants</li>
 				      <li>Slice the video into many different segments</li>
 				      <li>Swap between variants at segment boundaries if bandwidth changes</li>
-				      <li style="color: red">Add diagram</li>
 				    </ul>
+				    <br><br>
+				    <img src="img/segmented.png" class="plain" />
 				  </section>
-				  <section>
+<!-- 				  <section>
 				    <h2>Fallbacks</h2>
 				    <p>Wait for <code>canplaythrough</code></p>
 				    <pre><code class="javascript">
@@ -359,7 +394,7 @@ video.addEventListener('canplaythrough, function() {
 				      <li><code>progress</code></li>
 				      <li><code>video.buffered</code></li>
 				    </ul>
-				  </section>
+				  </section> -->
 				</section>
 				<section>
 				  <section>
