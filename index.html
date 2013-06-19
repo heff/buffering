@@ -250,7 +250,7 @@ _vidqCopy.forEach(_vidq.push);
 </script>
 				    </code></pre>
 				  </section>
-				  <section>
+<!-- 				  <section>
 				    <h2>Content Addressing</h2>
 				    <p>Static or Dynamic URLs</p>
 				    <strong class="fragment">STATIC</strong>
@@ -261,7 +261,7 @@ _vidqCopy.forEach(_vidq.push);
 							  <li>Flexibility</li>
 							</ul>
 				    </div>
-				  </section>
+				  </section> -->
 				  <section>
 				    <h2>Transfer</h2>
 				    <ul>
@@ -332,10 +332,11 @@ _vidqCopy.forEach(_vidq.push);
 				    <script src="lib/js/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 				    <h2>Starting Strategy</h2>
 				    <aside>("preformance")</aside>
+				    <br>
 				    <p>$$\frac{bitrate}{bandwidth} &lt; 1 \implies spinner $$</p>
 				  </section>
 				  <section>
-				    <h2>Bitrate Selection</h2>
+				    <h1>Bitrate Selection</h1>
 				    <em>Encode multiple renditions</em>
 				  </section>
 				  <section>
@@ -349,25 +350,29 @@ _vidqCopy.forEach(_vidq.push);
 				      <li>Many analytics libraries record client bandwidth</li>
 				      <li><code>window.performance</code></li>
 				    </ul>
+				    <br>
+				    <img src="img/hulu.png" class="plain" />
 				  </section>
 				  <section>
 				    <h2>Strategy 3: Dynamic Selection</h2>
 				    <h3>Adaptive Streaming</h3>
 				    <p>swap renditions during playback based on measured bandwidth</p>
-				    <ul>
+<!-- 				    <ul>
 				      <li>Flash Media Server</li>
 				      <li>Psuedo-Streaming</li>
 				      <li>HTTP Live Streaming <abbr>(HLS)<abbr></li>
 				      <li>MPEG-DASH</li>
-				    </ul>
+				    </ul> -->
+
+				    <img src="img/segmented.png" class="plain"/>
 				    <p>HLS is supported on iOS devices and newer Androids. HDS is supported in Flash.</p>
 				  </section>
 				</section>
 				<section>
-				  <section>
+				  <section style="text-align: center;">
 				    <h2>Today</h2>
 				    <h3>12,149 video requests</h3>
-				    <table>
+				    <table align="center" style="text-align: center; width: 200px; margin: 0px auto;">
 				      <thead>
 					<th>Format</th><th>Count</th>
 				      </thead>
@@ -385,10 +390,12 @@ _vidqCopy.forEach(_vidq.push);
 					<tr><td><code>ogv</code></td><td>2</td></tr>
 				      </tbody>
 				    </table>
+				    <br>
+				    <small>(Source: HTTP Archive)</small>
 				  </section>
 				  <section>
 				    <h2>The Future</h2>
-				    <table>
+				    <table style="text-align: center; width: 200px; margin: 0px auto;">
 				      <thead>
 					<th>Format</th><th>Count</th>
 				      </thead>
