@@ -209,14 +209,6 @@ _vidqCopy.forEach(_vidq.push);
 						</aside>
 					</section>
 					<section>
-					  <h2>iFrames</h2>
-					  <ul>
-					    <li>Popular delivery method</li>
-					    <li>Significant overhead especially on mobile devices</li>
-					    <li>Required for many embedding scenarios</li>
-					  </ul>
-					</section>
-					<section>
 					  <style>
 					    .reveal .outro {
 					      padding-top: 20px;
@@ -371,30 +363,6 @@ _vidqCopy.forEach(_vidq.push);
 				    </ul>
 				    <p>HLS is supported on iOS devices and newer Androids. HDS is supported in Flash.</p>
 				  </section>
-				  <section>
-				    <h2>Segmenting</h2>
-				    <ul>
-				      <li>Rendition manifest lists bitrate variants</li>
-				      <li>Slice the video into many different segments</li>
-				      <li>Swap between variants at segment boundaries if bandwidth changes</li>
-				    </ul>
-				    <br><br>
-				    <img src="img/segmented.png" class="plain" />
-				  </section>
-<!-- 				  <section>
-				    <h2>Fallbacks</h2>
-				    <p>Wait for <code>canplaythrough</code></p>
-				    <pre><code class="javascript">
-video.addEventListener('canplaythrough, function() {
-  video.play();
-}, false);
-				      </code></pre>
-				    <p>Monitor buffering yourself:</p>
-				    <ul>
-				      <li><code>progress</code></li>
-				      <li><code>video.buffered</code></li>
-				    </ul>
-				  </section> -->
 				</section>
 				<section>
 				  <section>
